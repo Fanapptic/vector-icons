@@ -51,6 +51,9 @@ fontFiles.forEach(fontFile => {
     -mox-osx-font-smoothing: grayscale;
   }\n`;
 
+  // Copy font file to docs
+  fs.createReadStream(`../fonts/${fontFile}`).pipe(fs.createWriteStream(`../docs/fonts/${fontFile}`));
+
   // Write scss and css file
   fs.writeFileSync(`../sass/${fontFamily}.scss`, scss);
   fs.writeFileSync(`../css/${fontFamily}.css`, scss);
