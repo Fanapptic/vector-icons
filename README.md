@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="Vector Icons" src="https://raw.githubusercontent.com/Fanapptic/vector-icons/master/branding/logo.png" width="400" />
+</p>
+
 Vector Icons is a normalized set of css classes that map to a variety of popular icon libraries. It offers both Sass and CSS support.
 
 The following icon libraries are currently included.
