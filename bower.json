@@ -1,0 +1,26 @@
+{
+  "name": "vector-icons",
+  "homepage": "https://github.com/Fanapptic/vector-icons",
+  "authors": [
+    "Braydon Batungbacal <me@braydonb.com>"
+  ],
+  "description": "Vectory Icons is a normalized set of css classes that map to a variety of popular icon libraries. It offers both Sass and CSS support.",
+  "main": "",
+  "keywords": [
+    "entypo",
+    "feather",
+    "foundation",
+    "ionicons",
+    "materialcommunityicons",
+    "vector",
+    "icons"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
