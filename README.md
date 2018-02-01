@@ -7,3 +7,15 @@ The following icon libraries are currently included.
 * [`Foundation`](http://zurb.com/playground/foundation-icon-fonts-3) by ZURB, Inc. (v3.0, **283** icons)
 * [`Ionicons`](http://ionicframework.com/docs/v2/ionicons/) by Ben Sperry (v3.0.0, **859** icons)
 * [`MaterialCommunityIcons`](https://materialdesignicons.com/) by MaterialDesignIcons.com (v2.1.19, **2120** icons)
+
+## Installation
+
+You can install Vector Icons using bower.
+
+```
+bower install vector-icons --save
+```
+
+## Usage
+
+The package contains a `css` and `sass` directory depending on your implementation approach. You can choose which icon sets you want to use by using their respective css or scss file within your project.
