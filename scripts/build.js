@@ -18,7 +18,7 @@ fontFiles.forEach(fontFile => {
   // Generate @font-face
   let scss = `@font-face {
     font-family: "${fontFamily}";
-    src:url("../fonts/${fontFamily}.ttf") format("truetype");
+    src:url("fonts/${fontFamily}.ttf") format("truetype");
   }\n`;
 
   // Generate icon classes with baseline properties, specific glyph and docs html content.
@@ -51,7 +51,7 @@ fontFiles.forEach(fontFile => {
     -mox-osx-font-smoothing: grayscale;
   }\n`;
 
-  // Copy font file to docs
+  // Copy font file to docs directory
   fs.createReadStream(`../fonts/${fontFile}`).pipe(fs.createWriteStream(`../docs/fonts/${fontFile}`));
 
   // Write scss and css file
