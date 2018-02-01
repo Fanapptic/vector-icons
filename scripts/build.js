@@ -13,7 +13,7 @@ fontFiles.forEach(fontFile => {
   const glyphMap = require(`../glyphmaps/${fontFamily}.json`);
 
   htmlDocsContent += `<h1>${fontFamily}</h1>`;
-  htmlDocsStylesheets += `<link href="../css/${fontFamily}.css" rel="stylesheet" type="text/css" />`;
+  htmlDocsStylesheets += `<link href="${fontFamily}.css" rel="stylesheet" type="text/css" />`;
 
   // Generate @font-face
   let scss = `@font-face {
@@ -54,6 +54,7 @@ fontFiles.forEach(fontFile => {
   // Write scss and css file
   fs.writeFileSync(`../sass/${fontFamily}.scss`, scss);
   fs.writeFileSync(`../css/${fontFamily}.css`, scss);
+  fs.writeFileSync(`../docs/${fontFamily}.css`, scss);
 });
 
 // Write docs file
