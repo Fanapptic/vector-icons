@@ -23,3 +23,5 @@ bower install vector-icons --save
 ## Usage
 
 The package contains a `css` and `sass` directory depending on your implementation approach. You can choose which icon sets you want to use by using their respective css or scss file within your project.
+
+For a full list of available icons and their CSS classes, see: <a href="https://fanapptic.github.io/vector-icons/">https://fanapptic.github.io/vector-icons/</a>
