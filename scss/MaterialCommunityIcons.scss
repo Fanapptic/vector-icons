@@ -1,6 +1,8 @@
-@font-face {
+
+    $materialcommunityicons-font-path: "fonts" !default;
+  @font-face {
     font-family: "MaterialCommunityIcons";
-    src:url("fonts/MaterialCommunityIcons.ttf") format("truetype");
+    src:url("#{$materialcommunityicons-font-path}/MaterialCommunityIcons.ttf") format("truetype");
   }
 .materialcommunityicons-access-point:before {
       content: ""

@@ -1,6 +1,8 @@
-@font-face {
+
+    $feather-font-path: "fonts" !default;
+  @font-face {
     font-family: "Feather";
-    src:url("fonts/Feather.ttf") format("truetype");
+    src:url("#{$feather-font-path}/Feather.ttf") format("truetype");
   }
 .feather-activity:before {
       content: ""

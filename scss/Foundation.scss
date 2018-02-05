@@ -1,6 +1,8 @@
-@font-face {
+
+    $foundation-font-path: "fonts" !default;
+  @font-face {
     font-family: "Foundation";
-    src:url("fonts/Foundation.ttf") format("truetype");
+    src:url("#{$foundation-font-path}/Foundation.ttf") format("truetype");
   }
 .foundation-address-book:before {
       content: ""

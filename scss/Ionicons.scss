@@ -1,6 +1,8 @@
-@font-face {
+
+    $ionicons-font-path: "fonts" !default;
+  @font-face {
     font-family: "Ionicons";
-    src:url("fonts/Ionicons.ttf") format("truetype");
+    src:url("#{$ionicons-font-path}/Ionicons.ttf") format("truetype");
   }
 .ionicons-ios-add:before {
       content: ""

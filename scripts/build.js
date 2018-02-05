@@ -9,16 +9,29 @@ let htmlDocsStylesheets = '';
 let htmlDocsContent = '';
 
 fontFiles.forEach(fontFile => {
+  const fontDirectory = 'fonts';
   const fontFamily = fontFile.replace('.ttf', '');
   const glyphMap = require(`../glyphmaps/${fontFamily}.json`);
+  let scss = '';
+  let css = '';
 
   htmlDocsContent += `<h1>${fontFamily}</h1>`;
   htmlDocsStylesheets += `<link href="${fontFamily}.css" rel="stylesheet" type="text/css" />`;
 
+  // Set scss variables
+  scss += `
+    $${fontFamily.toLowerCase()}-font-path: "${fontDirectory}" !default;
+  `;
+
   // Generate @font-face
-  let scss = `@font-face {
+  scss += `@font-face {
     font-family: "${fontFamily}";
-    src:url("fonts/${fontFamily}.ttf") format("truetype");
+    src:url("#{$${fontFamily.toLowerCase()}-font-path}/${fontFamily}.ttf") format("truetype");
+  }\n`;
+
+  css += `@font-face {
+    font-family: "${fontFamily}";
+    src:url("${fontDirectory}/${fontFamily}.ttf") format("truetype");
   }\n`;
 
   // Generate icon classes with baseline properties, specific glyph and docs html content.
@@ -27,17 +40,19 @@ fontFiles.forEach(fontFile => {
   Object.keys(glyphMap).forEach(glyphMapKey => {
     const glyphClass = `${fontFamily.toLowerCase()}-${glyphMapKey}`;
     const glyphSelector = `.${glyphClass}:before`;
-
-    scss += `${glyphSelector} {
+    const glyphRuleset = `${glyphSelector} {
       content: "${String.fromCharCode(glyphMap[glyphMapKey])}"
-    }\n`
+    }\n`;
+
+    scss += glyphRuleset;
+    css += glyphRuleset;
 
     htmlDocsContent += `<div><i class="${glyphClass}"></i><span>.${glyphClass}</span></div>`;
 
     glyphSelectors.push(glyphSelector);
   });
 
-  scss += glyphSelectors.join(',') + ' ' + `{
+  const glyphGlobalRuleset = glyphSelectors.join(',') + ' ' + `{
     display: inline-block;
     font-family: "${fontFamily}";
     speak: none;
@@ -51,13 +66,16 @@ fontFiles.forEach(fontFile => {
     -mox-osx-font-smoothing: grayscale;
   }\n`;
 
+  scss += glyphGlobalRuleset;
+  css += glyphGlobalRuleset;
+
   // Copy font file to docs directory
   fs.createReadStream(`../fonts/${fontFile}`).pipe(fs.createWriteStream(`../docs/fonts/${fontFile}`));
 
   // Write scss and css file
-  fs.writeFileSync(`../sass/${fontFamily}.scss`, scss);
-  fs.writeFileSync(`../css/${fontFamily}.css`, scss);
-  fs.writeFileSync(`../docs/${fontFamily}.css`, scss);
+  fs.writeFileSync(`../scss/${fontFamily}.scss`, scss);
+  fs.writeFileSync(`../css/${fontFamily}.css`, css);
+  fs.writeFileSync(`../docs/${fontFamily}.css`, css);
 });
 
 // Write docs file

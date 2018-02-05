@@ -1,6 +1,8 @@
-@font-face {
+
+    $entypo-font-path: "fonts" !default;
+  @font-face {
     font-family: "Entypo";
-    src:url("fonts/Entypo.ttf") format("truetype");
+    src:url("#{$entypo-font-path}/Entypo.ttf") format("truetype");
   }
 .entypo-500px:before {
       content: ""
