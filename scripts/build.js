@@ -16,7 +16,7 @@ fontFiles.forEach(fontFile => {
   let css = '';
 
   htmlDocsContent += `<h1>${fontFamily}</h1>`;
-  htmlDocsStylesheets += `<link href="${fontFamily}.css" rel="stylesheet" type="text/css" />`;
+  htmlDocsStylesheets += `<link href="${fontFamily.toLowerCase()}.css" rel="stylesheet" type="text/css" />`;
 
   // Set scss variables
   scss += `
@@ -73,9 +73,9 @@ fontFiles.forEach(fontFile => {
   fs.createReadStream(`../fonts/${fontFile}`).pipe(fs.createWriteStream(`../docs/fonts/${fontFile}`));
 
   // Write scss and css file
-  fs.writeFileSync(`../scss/${fontFamily}.scss`, scss);
-  fs.writeFileSync(`../css/${fontFamily}.css`, css);
-  fs.writeFileSync(`../docs/${fontFamily}.css`, css);
+  fs.writeFileSync(`../scss/_${fontFamily.toLowerCase()}.scss`, scss);
+  fs.writeFileSync(`../css/${fontFamily.toLowerCase()}.css`, css);
+  fs.writeFileSync(`../docs/${fontFamily.toLowerCase()}.css`, css);
 });
 
 // Write docs file
