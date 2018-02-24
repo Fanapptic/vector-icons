@@ -16,7 +16,7 @@ fontFiles.forEach(fontFile => {
   let css = '';
 
   htmlDocsContent += `<h1>${fontFamily}</h1>`;
-  htmlDocsStylesheets += `<link href="${fontFamily.toLowerCase()}.css" rel="stylesheet" type="text/css" />`;
+  htmlDocsStylesheets += `<link href="${fontFamily}.css" rel="stylesheet" type="text/css" />`;
 
   // Set scss variables
   scss += `
